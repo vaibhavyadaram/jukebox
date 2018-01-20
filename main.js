@@ -1,13 +1,18 @@
 var billboard = require("billboard-top-100").getChart;
 
-// date defaults to saturday of this week
-
-billboard('pop-songs', function(songs, err){
+billboard('pop-songs', '2018-01-20', function(songs, err){
     if (err) console.log(err);
-    console.log(songs); //prints array of top 100 songs
-    console.log(songs[3]); //prints song with rank: 4
-    console.log(songs[0].title); //prints title of top song
-    console.log(songs[0].artist); //prints artist of top songs
-    console.log(songs[0].rank) //prints rank of top song (1)
-    console.log(songs[0].cover) //prints URL for Billboard cover image of top song
-})
+
+    for (rank = 0; rank <= 9; rank++) {
+
+      var songArray = {
+        billboardRank: rank + 1,
+        title: songs[rank].title,
+        artist: songs[rank].artist
+      }
+
+      console.log(songArray);
+
+    }
+
+});
