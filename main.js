@@ -2,7 +2,7 @@ var billboard = require("billboard-top-100").getChart;
 
 // date defaults to saturday of this week
 
-billboard('hot-100', function(songs, err){
+billboard('pop-songs', function(songs, err){
     if (err) console.log(err);
     console.log(songs); //prints array of top 100 songs
     console.log(songs[3]); //prints song with rank: 4
