@@ -49,7 +49,6 @@ function sendOptions(e) {
   //   } else if(res.is_playing == false && localStorage.getItem("changed") == "false") {
   //     spotifyApi.play({})
   //   } else {
-
         let data;
         const genre = localStorage.getItem('genreSelect')
         const date = document.querySelector("#date").value

@@ -9,6 +9,10 @@ app.get('/implicit', function(req,res){
  res.sendfile(__dirname + '/public/implicit.html');
 });
 
+app.get('/authorize', function(req,res){
+ res.sendfile(__dirname + '/public/authorize.html');
+});
+
 app.use(bodyParser.text())
 
 

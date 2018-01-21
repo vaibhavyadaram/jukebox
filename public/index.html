@@ -119,7 +119,7 @@
                 success: function(response) {
                   console.log(access_token)
                   localStorage.setItem('spotifyToken', access_token)
-                  window.url = "http://localhost:3000"
+                  window.location = "http://localhost:3000"
                 }
             });
           } else {
