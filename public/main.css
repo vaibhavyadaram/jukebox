@@ -21,6 +21,23 @@ body {
   position: absolute;
 }
 
+#handle {
+  height: 30vh;
+  width: 45vw;
+  padding: 0;
+  background-color: #6fcb9f;
+  z-index: 1;
+  display: block;
+  position: absolute;
+  top: 12vh;
+  left: 25vw;
+  border-radius: 20%;
+  border-color: #2f2822;
+  border-width: 4vh;
+  border-style: solid;
+  padding: 0;
+}
+
 #boombox {
   margin: auto;
   margin-top: 35vh;
@@ -48,7 +65,7 @@ body {
 }
 
 #left-button {
-  margin-right: 1vw;
+  margin-right: 0.5vw;
   display: inline-block;
   vertical-align: top;
 }
@@ -108,7 +125,7 @@ input:focus {
 
 
 #right-button {
-  margin-left: 1vw;
+  margin-left: 0.5vw;
   display: inline-block;
   vertical-align: top;
 }
