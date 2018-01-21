@@ -219,3 +219,10 @@ border-color: #86003C transparent transparent transparent;
 marquee {
   width: 115px;
 }
+
+#note {
+  top: 50;
+  right: 20;
+  position: absolute;
+  width: 200px;
+}

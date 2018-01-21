@@ -14,20 +14,24 @@ window.onload = function() {
       document.querySelector("#login-button").style.display = "inline-block"
       document.querySelector("#signout-button").style.display = "none"
     }
-  })
+
+  }
+)
 
   document.querySelectorAll('.button').forEach((element) => {
     element.addEventListener('click', changeGenre)
   })
 }
-document.querySelector('#submitBtn').addEventListener('click', sendOptions)
-document.querySelector('#playPause').addEventListener('click', playPlaylist)
+document.querySelector('#playPause').addEventListener('click', sendOptions)
 document.querySelector('#signout-button').addEventListener('click', signOut)
-
+document.querySelector('#date').addEventListener('change', function() {
+  localStorage.setItem("changed", "true")
+})
 
 
 function changeGenre(element) {
   localStorage.setItem("genreSelect", element.target.value)
+  localStorage.setItem("changed", "true")
 }
 
 function signOut() {
@@ -36,54 +40,69 @@ function signOut() {
 }
 
 function playPlaylist() {
-  spotifyApi.play({context_uri: localStorage.getItem('playlistURI'), device_id: localStorage.getItem('deviceID')})
 }
 
 function sendOptions(e) {
-  let data;
-  const genre = localStorage.getItem('genreSelect')
-  const date = document.querySelector("#date").value
-  data = JSON.stringify([genre, date])
-  e.preventDefault();
+  // spotifyApi.getMyCurrentPlaybackState({}, function(err, res) {
+  //   if(res.is_playing && localStorage.getItem("changed") == "false") {
+  //     spotifyApi.pause({})
+  //   } else if(res.is_playing == false && localStorage.getItem("changed") == "false") {
+  //     spotifyApi.play({})
+  //   } else {
 
-  var request = new XMLHttpRequest();
-  request.open('POST', "http://localhost:3000", true);
-  request.setRequestHeader("Content-type", "text/plain");
-  request.send(data);
+        let data;
+        const genre = localStorage.getItem('genreSelect')
+        const date = document.querySelector("#date").value
+        data = JSON.stringify([genre, date])
 
-  request.onreadystatechange = function() {
-    if (request.readyState === 4) {
-      var songData = JSON.parse(request.response);
+        var request = new XMLHttpRequest();
+        request.open('POST', "http://localhost:3000", true);
+        request.setRequestHeader("Content-type", "text/plain");
+        request.send(data);
 
-      var reformattedData = songData.map((element) => {
-        if (element.artist.includes("Featuring")) {
-          let artist = element.artist.split("Featuring")[0]
-          console.log(artist)
-          return `${element.title} ${artist}`
+        request.onreadystatechange = function() {
+          if (request.readyState === 4) {
+            var songData = JSON.parse(request.response);
 
-        } else {
-        return `${element.title} ${element.artist}`
-      }})
+            var reformattedData = songData.map((element) => {
+              if (element.artist.includes("Featuring")) {
+                let artist = element.artist.split("Featuring")[0]
+                console.log(artist)
+                return `${element.title} ${artist}`
 
-      spotifyApi.createPlaylist(user.id, {
-        name: `${date} - ${genre}`
-      }).then(function(data) {
-        playlistID = data.id
-        localStorage.setItem('playlistURI', data.uri)
-        console.log(data.uri)
+              } else {
+              return `${element.title} ${element.artist}`
+            }})
 
-
-        reformattedData.forEach(function(song) {
-          spotifyApi.searchTracks(song).then((data) => {
-            spotifyApi.addTracksToPlaylist(user.id, playlistID, [data.tracks.items["0"].uri], function(err) {})
-          })
-        })
+            spotifyApi.createPlaylist(user.id, {
+              name: `${date} - ${genre}`
+            }).then(function(data) {
+              playlistID = data.id
+              localStorage.setItem('playlistURI', data.uri)
+              console.log(data.uri)
 
 
-      }).catch(function(err) {
-        console.log(err)
-      })
+              reformattedData.forEach(function(song) {
+                spotifyApi.searchTracks(song).then((data) => {
+                  spotifyApi.addTracksToPlaylist(user.id, playlistID, [data.tracks.items["0"].uri], function(err) {})
+                })
+              })
+
+
+            }).catch(function(err) {
+              console.log(err)
+            })
+
+          }
+        }
+        setTimeout(function() {
+          spotifyApi.play({context_uri: localStorage.getItem('playlistURI'), device_id: localStorage.getItem('deviceID')})
+          localStorage.setItem("changed", "false")
+        }, 2000)
 
     }
-  }
-}
+  // })
+
+
+
+// }
