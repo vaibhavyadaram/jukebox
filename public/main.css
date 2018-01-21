@@ -226,3 +226,14 @@ marquee {
   position: absolute;
   width: 200px;
 }
+
+#signout-button {
+  left: 20;
+      top: 20;
+      position: absolute;
+      width: 70px;
+      height: 30px;
+      border: none;
+      border-radius: 10%;
+      background-color: #fbec9a;
+}
