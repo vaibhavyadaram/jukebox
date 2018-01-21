@@ -4,7 +4,13 @@ var bodyParser = require('body-parser')
 var billboard = require("billboard-top-100").getChart;
 
 
+app.use(express.static(__dirname + '/public'));
+app.get('/implicit', function(req,res){
+ res.sendfile(__dirname + '/public/implicit.html');
+});
+
 app.use(bodyParser.text())
+
 
 app.post("/", function (req, res) {
   const requested = JSON.parse(req.body)
