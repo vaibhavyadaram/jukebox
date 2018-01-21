@@ -67,7 +67,7 @@ body {
 
 #date {
   margin-top: 1vh;
-  color: #3F52E3;
+  color: #42e33f;
   position: absolute;
   font-family: 'Orbitron', sans-serif;
   font-size: 12px;
@@ -75,7 +75,7 @@ body {
   margin-left: 1.5vw;
   background-color: #02000f;
   border: none;
-  
+
 }
 
 input:focus {
@@ -85,22 +85,22 @@ input:focus {
 
 #artist {
   margin-top: 3.75vh;
-  color: #3F52E3;
+  color: #42e33f;
   position: absolute;
   font-family: 'Orbitron', sans-serif;
   font-size: 12px;
   display: inline-block;
-  margin-left: 12vw;
+  margin-left: 14vw;
 }
 
 #song {
   margin-top: 1vh;
-  color: #3F52E3;
+  color: #42e33f;
   position: absolute;
   font-family: 'Orbitron', sans-serif;
   font-size: 14px;
   display: inline-block;
-  margin-left: 12vw;
+  margin-left: 14vw;
 }
 
 
@@ -199,3 +199,6 @@ border-width: 7.35vw 5vw 5vw;
 border-color: #86003C transparent transparent transparent;
 }
 
+marquee {
+  width: 115px;
+}

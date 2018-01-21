@@ -39,8 +39,8 @@
               </span>
 
               <input type="date" id="date"/>
-              <h1 id="song"> Song </h1>
-              <h1 id="artist"> Artist </h1>
+              <h1 id="song"></h1>
+              <h1 id="artist"> </h1>
 
             </div>
 
@@ -153,6 +153,11 @@
     <script src="spotify-web-api.js"></script>
     <script src="client.js"></script>
     <script>
+    function updateInfo(state) {
+      document.querySelector('#song').innerHTML = `<marquee scrollamount=4> ${state.track_window.current_track.name} </marquee>`
+      document.querySelector('#artist').innerHTML = `<marquee scrollamount=4> ${state.track_window.current_track.artists["0"].name} </marquee>`
+
+    }
    window.onSpotifyWebPlaybackSDKReady = () => {
      const token = localStorage.getItem('spotifyToken');
      const player = new Spotify.Player({
@@ -167,7 +172,7 @@
      player.on('playback_error', e => { console.error(e); });
 
      // Playback status updates
-     player.on('player_state_changed', state => { console.log(state); });
+     player.on('player_state_changed', state => { console.log(state); updateInfo(state) });
 
      // Ready
      player.on('ready', data => {
