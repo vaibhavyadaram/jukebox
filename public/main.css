@@ -236,4 +236,21 @@ marquee {
       border: none;
       border-radius: 10%;
       background-color: #fbec9a;
+      font-family: Brush Script MT, serif;
+font-size: 14px;
+
+}
+
+#login-button {
+  left: 20;
+      top: 20;
+      position: absolute;
+      width: 70px;
+      height: 30px;
+      border: none;
+      border-radius: 10%;
+      background-color: #fbec9a;
+      font-family: Brush Script MT, serif;
+font-size: 12px;
+
 }
