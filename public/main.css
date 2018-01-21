@@ -1,0 +1,201 @@
+html {
+  background-color: #6fcb9f;
+}
+
+
+body {
+    …
+    -webkit-perspective: 400;
+    margin: 0;
+    padding: 0;
+}
+
+#table {
+  height: 30vh;
+  width: 100vw;
+  padding: 0;
+  background-color: #FF4273;
+  z-index: 1;
+  display: block;
+  bottom: 0;
+  position: absolute;
+}
+
+#boombox {
+  margin: auto;
+  margin-top: 35vh;
+  height: 50vh;
+  width: 60vw;
+  background-color: #2f2822;
+  border-radius: 10%;
+  z-index: 500;
+  position: relative;
+
+}
+
+#topbar {
+  margin: auto;
+  margin-top: 3vh;
+  height: 8vh;
+  width: 60vw;
+  background-color: #636363;
+  border-radius: 3%;
+}
+
+#button-container {
+  top: 5vh;
+  text-align: center;
+}
+
+#left-button {
+  margin-right: 1vw;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#fields {
+  background-color: #02000f;
+  height: 6vh;
+  width: 22vw;
+  margin-left: 3vw;
+  display: inline-block;
+  margin-top: 1vh;
+  text-align: left;
+  vertical-align: top;
+  border-radius: 3%;
+}
+
+#date {
+  margin-top: 1vh;
+  color: #3F52E3;
+  position: absolute;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 12px;
+  display: inline-block;
+  margin-left: 1.5vw;
+  background-color: #02000f;
+  border: none;
+  
+}
+
+input:focus {
+    outline:none;
+}
+
+
+#artist {
+  margin-top: 3.75vh;
+  color: #3F52E3;
+  position: absolute;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 12px;
+  display: inline-block;
+  margin-left: 12vw;
+}
+
+#song {
+  margin-top: 1vh;
+  color: #3F52E3;
+  position: absolute;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  display: inline-block;
+  margin-left: 12vw;
+}
+
+
+
+
+
+#right-button {
+  margin-left: 1vw;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.button {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background-color: black;
+    height: 4.5vh;
+    width: 5vw;
+  /*  padding: 20px 60px; */
+    margin-top: 1.25vh;
+    margin-left: 0.05vw;
+    font-size: 14px;
+    border: 1px solid #b7b8b9;
+    background-image: linear-gradient(bottom, rgb(60,60,60) 0%, rgb(60,60,60) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(60,60,60) 0%, rgb(60,60,60) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(60,60,60) 0%, rgb(60,60,60) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(60,60,60) 0%, rgb(60,60,60) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(60,60,60) 0%, rgb(60,60,60) 100%);
+
+    background-image: -webkit-gradient(
+        color-stop(0, rgb(73,132,180)),
+        color-stop(1, rgb(97,155,203))
+    );
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 5px;
+    text-shadow: 0px -1px 0px rgba(105,105,105);
+box-shadow: 0px 6px 0px #b7b8b9, 0px 3px 15px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 3px rgba(255,255,255,.5);
+
+}
+
+
+.button:active {
+    background-image: linear-gradient(bottom, rgb(0,0,0) 0%, rgb(0,0,0) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(0,0,0) 0%, rgb(0,0,0) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(0,0,0) 0%, rgb(0,0,0) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(0,0,0) 0%, rgb(0,0,0) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(0,0,0) 0%, rgb(0,0,0) 100%);
+
+    background-image: -webkit-linear-gradient(bottom, rgb(60,60,60) 0%, rgb(60,60,60) 100%);
+
+    -webkit-box-shadow: 0px 2px 0px #2b638f, 0px 1px 6px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 3px rgba(255,255,255,.5);
+    -moz-box-shadow: 0px 2px 0px #2b638f, 0px 1px 6px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 3px rgba(255,255,255,.5);
+    box-shadow: 0px 2px 0px #2b638f, 0px 1px 6px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 3px rgba(255,255,255,.5);
+
+
+    -webkit-transform: translate(0, 4px);
+
+}
+
+button:focus {outline:0;}
+
+#speaker1 {
+  text-align: left;
+	width: 20vw;
+	height: 20vw;
+	position: absolute;
+  margin-top: 3vh;
+  margin-left: 2vw;
+}
+
+#cassette {
+  text-align: center;
+  width: 14vw;
+  position: absolute;
+  margin-top: 3vh;
+  margin-left: 23vw;
+}
+
+#speaker2 {
+  text-align: left;
+	width: 20vw;
+	height: 20vw;
+	position: absolute;
+  margin-top: 3vh;
+  margin-left: 38vw;
+}
+
+.arrow-down {
+width: 0;
+height: 0;
+margin-left:74vw;
+border-style: solid;
+border-width: 7.35vw 5vw 5vw;
+border-color: #86003C transparent transparent transparent;
+}
+

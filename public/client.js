@@ -15,10 +15,20 @@ window.onload = function() {
       document.querySelector("#signout-button").style.display = "none"
     }
   })
+
+  document.querySelectorAll('.button').forEach((element) => {
+    element.addEventListener('click', changeGenre)
+  })
 }
-document.querySelector('#mainForm').addEventListener('submit', sendOptions)
-document.querySelector('#playbtn').addEventListener('click', playPlaylist)
+document.querySelector('#submitBtn').addEventListener('click', sendOptions)
+document.querySelector('#playPause').addEventListener('click', playPlaylist)
 document.querySelector('#signout-button').addEventListener('click', signOut)
+
+
+
+function changeGenre(element) {
+  localStorage.setItem("genreSelect", element.target.value)
+}
 
 function signOut() {
   localStorage.setItem('spotifyToken', "");
@@ -31,7 +41,7 @@ function playPlaylist() {
 
 function sendOptions(e) {
   let data;
-  const genre = document.querySelector("#genre").value
+  const genre = localStorage.getItem('genreSelect')
   const date = document.querySelector("#date").value
   data = JSON.stringify([genre, date])
   e.preventDefault();
@@ -44,11 +54,7 @@ function sendOptions(e) {
   request.onreadystatechange = function() {
     if (request.readyState === 4) {
       var songData = JSON.parse(request.response);
-      var output = document.querySelector("#output")
-      output.innerHTML = ""
-      songData.forEach(function(index) {
-        output.innerHTML = output.innerHTML + `<p> ${index.title} - ${index.artist}</p>`
-      })
+
       var reformattedData = songData.map((element) => {
         if (element.artist.includes("Featuring")) {
           let artist = element.artist.split("Featuring")[0]
